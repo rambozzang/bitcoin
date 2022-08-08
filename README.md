@@ -1,4 +1,4 @@
-# bitsumb2
+# UPBIT clone app
 
 A new Flutter Clone Upbit App project.
 
