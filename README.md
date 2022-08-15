@@ -19,3 +19,4 @@ A new Flutter Clone Upbit App project.
 ### screen
 
 ![upbit_gif](https://user-images.githubusercontent.com/8524865/184647263-224f4838-4dff-49c0-b818-bd0197c2ab9a.gif)
+![upbit2](https://user-images.githubusercontent.com/8524865/184648884-92f38b98-df04-49b8-aee1-01c8fdd9ac30.gif)
