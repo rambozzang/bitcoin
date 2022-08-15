@@ -11,4 +11,7 @@ A new Flutter Clone Upbit App project.
  
  업비트 공개용 API 3개만을 이용해서 구현되었습니다.
  
- 
+
+### screen
+
+![upbit_gif](https://user-images.githubusercontent.com/8524865/184647263-224f4838-4dff-49c0-b818-bd0197c2ab9a.gif)
