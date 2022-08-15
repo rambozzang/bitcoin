@@ -131,7 +131,7 @@ class UpbitOrderAskView extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Text(
-                      "${this.f2.format(_data.ask_size).toString()}",
+                      "${Utils.getMoneyformat(_data.ask_size).toString()}",
                       textAlign: TextAlign.end,
                       style: const TextStyle(
                           fontSize: 11,
@@ -142,7 +142,7 @@ class UpbitOrderAskView extends StatelessWidget {
                       alignment: Alignment.centerRight,
                       child: (_data.ask_plus_size ?? 0.0) > 0.0
                           ? Text(
-                              " ${this.f2.format(_data.ask_plus_size)} ",
+                              " ${Utils.getMoneyformat(_data.ask_plus_size)} ",
                               textAlign: TextAlign.right,
                               style: TextStyle(
                                   fontSize: 10,
@@ -151,7 +151,7 @@ class UpbitOrderAskView extends StatelessWidget {
                             )
                           : (_data.ask_minus_size ?? 0.0) > 0.0
                               ? Text(
-                                  "-${this.f2.format(_data.ask_minus_size)} ",
+                                  "-${Utils.getMoneyformat(_data.ask_minus_size)} ",
                                   textAlign: TextAlign.right,
                                   style: TextStyle(
                                       fontSize: 10,

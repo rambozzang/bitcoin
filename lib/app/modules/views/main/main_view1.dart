@@ -9,11 +9,6 @@ class MainView1 extends GetView {
   @override
   Widget build(BuildContext context) {
     if (Platform.isAndroid) WebView.platform = AndroidWebView();
-    return Scaffold(
-        body: SafeArea(
-      child: WebView(
-        initialUrl: 'https://upbit.com/trends',
-      ),
-    ));
+    return Scaffold(body: SafeArea(child: Center(child: Text("코인정보"))));
   }
 }

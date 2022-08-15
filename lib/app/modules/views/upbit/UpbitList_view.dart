@@ -247,7 +247,7 @@ class UpbitListView extends GetView<UpBitListController> {
                                           ),
                                         ),
                                         SizedBox(
-                                          width: 9,
+                                          width: 5,
                                         ),
                                         Flexible(
                                           flex: 2,
@@ -310,7 +310,7 @@ class UpbitListView extends GetView<UpBitListController> {
                                               textAlign: TextAlign.end,
                                               style: Utils.getTextStyle(
                                                   data[index].yesterday_rate,
-                                                  12),
+                                                  11),
                                             ),
                                           ),
                                         ),

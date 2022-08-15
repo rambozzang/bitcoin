@@ -403,16 +403,6 @@ class UpbitMainController extends GetxController
           100);
     });
 
-    // 시간을 비교해서 0.3초간은 데이터를 유지처리
-    int _dif = 0;
-    if (_oldresOrderBookVo.timestamp != null) {
-      _dif = DateTime.fromMillisecondsSinceEpoch(_resOrderBookVo.timestamp!)
-          .difference(DateTime.fromMillisecondsSinceEpoch(
-              _oldresOrderBookVo.timestamp!))
-          .inMilliseconds;
-      print("_dif : $_dif");
-    }
-
     _resOrderBookVo.orderbook_units?.forEach((element1) {
       // 1.Size 비율 구하기
       element1.bid_size_rate = ((element1.bid_size! / bigestBidSizeRate) * 100);
@@ -420,6 +410,7 @@ class UpbitMainController extends GetxController
 
       // 2.이전 데이터 와 비교
       _oldresOrderBookVo.orderbook_units?.forEach((element2) {
+        //매수호가
         if (element1.bid_price == element2.bid_price) {
           if (element1.bid_size! > element2.bid_size!) {
             element1.bid_plus_size = (element1.bid_size! - element2.bid_size!);
@@ -427,53 +418,37 @@ class UpbitMainController extends GetxController
             element1.bid_minus_size = 0.0;
           } else if (element1.bid_size! == element2.bid_size!) {
             // 시간을 비교해서 0.3초간은 데이터를 유지처리
-            if (_dif < 3000 && element2.bid_minus_size != 0.0) {
-              element1.bid_plus_size = element2.bid_plus_size;
-            } else {
-              element1.bid_plus_size = 0.0;
-            }
+            element1.bid_plus_size = 0.0;
             element1.bid_minus_size = 0.0;
           } else {
             element1.bid_minus_size = (element2.bid_size! - element1.bid_size!);
-            if (_dif < 3000 && element2.bid_plus_size != 0.0) {
-              element1.bid_minus_size = element2.bid_minus_size;
-            } else {
-              element1.bid_minus_size = 0.0;
-            }
             element1.bid_plus_size = 0.0;
           }
-
+          //매도 호가
           if (element1.ask_price == element2.ask_price) {
             if (element1.ask_size! > element2.ask_size!) {
               element1.ask_plus_size =
                   (element1.ask_size! - element2.ask_size!);
 
-              if (_dif < 3000 && element2.ask_minus_size != 0.0) {
-                element1.ask_plus_size = element2.ask_plus_size;
-              } else {
-                element1.ask_plus_size = 0.0;
-              }
+              element1.ask_minus_size = 0.0;
+            } else if (element1.ask_size! == element2.ask_size!) {
+              element1.ask_plus_size = 0.0;
               element1.ask_minus_size = 0.0;
             } else {
               element1.ask_minus_size =
                   (element2.ask_size! - element1.ask_size!);
-
-              if (_dif < 3000 && element2.ask_plus_size != 0.0) {
-                element1.ask_minus_size = element2.ask_minus_size;
-              } else {
-                element1.ask_minus_size = 0.0;
-              }
               element1.ask_plus_size = 0.0;
             }
           }
 
           // 3.한번 비교됐으면 다음데이터를 스킵하고 바로 다음 으로 넘어간다.
+          // 3초가 유지하는 vo를 별도로 만들어서 여기서 다시 0.0인 데이터들만 다시 비교해서 넣어줌
           return;
         }
       });
       // 비교한 데이터는 삭제 처리
       _oldresOrderBookVo.orderbook_units
-          ?.removeWhere((element) => element.bid_price == element1.bid_price);
+          ?.removeWhere((e) => e.bid_price == element1.bid_price);
     });
     // 비교후 다시 집어 넣는다.
     _oldresOrderBookVo = _resOrderBookVo;

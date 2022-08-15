@@ -88,7 +88,7 @@ class UpbitTikerAskView extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Text(
-                      "${this.f2.format(_data.ask_size).toString()}",
+                      "${Utils.getMoneyformat(_data.ask_size).toString()}",
                       textAlign: TextAlign.end,
                       style: const TextStyle(
                           fontSize: 12,
@@ -99,7 +99,7 @@ class UpbitTikerAskView extends StatelessWidget {
                         ? Align(
                             alignment: Alignment.centerLeft,
                             child: Text(
-                              " ${this.f2.format(_data.ask_plus_size)} ",
+                              " ${Utils.getMoneyformat(_data.ask_plus_size)} ",
                               textAlign: TextAlign.left,
                               style: const TextStyle(
                                   fontSize: 9,
@@ -111,7 +111,7 @@ class UpbitTikerAskView extends StatelessWidget {
                             ? Align(
                                 alignment: Alignment.centerLeft,
                                 child: Text(
-                                  "-${this.f2.format(_data.ask_minus_size)} ",
+                                  "-${Utils.getMoneyformat(_data.ask_minus_size)} ",
                                   textAlign: TextAlign.left,
                                   style: const TextStyle(
                                       fontSize: 9,

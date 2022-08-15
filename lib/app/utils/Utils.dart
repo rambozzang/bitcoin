@@ -30,6 +30,7 @@ class Utils {
       price = double.parse(price.toString());
     }
 
+
     if (price > 999) {
       return NumberFormat('###,###,###,###')
           .format(price ?? '0')
@@ -41,7 +42,7 @@ class Utils {
     } else if (price >= 1 && price <= 9.9999999) {
       return NumberFormat('#.####').format(price ?? '0').replaceAll(' ', '');
     } else if (price > 0.01 && price < 1) {
-      return NumberFormat('#.####').format(price ?? '0').replaceAll(' ', '');
+      return NumberFormat('0.####').format(price ?? '0').replaceAll(' ', '');
     } else if (price > 0.0001 && price <= 0.01) {
       return NumberFormat('0.#####').format(price ?? '0').replaceAll(' ', '');
     } else if (price <= 0.0001) {

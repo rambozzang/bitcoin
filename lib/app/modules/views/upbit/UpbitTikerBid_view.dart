@@ -145,7 +145,7 @@ class UpbtitTikerBidView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "${this.f2.format(_data.bid_size).toString()}",
+                        "${Utils.getMoneyformat(_data.bid_size).toString()}",
                         textAlign: TextAlign.start,
                         style: const TextStyle(
                             fontSize: 12,
@@ -156,7 +156,7 @@ class UpbtitTikerBidView extends StatelessWidget {
                           ? Align(
                               alignment: Alignment.centerRight,
                               child: Text(
-                                " ${this.f2.format(_data.bid_plus_size)} ",
+                                " ${Utils.getMoneyformat(_data.bid_plus_size)} ",
                                 textAlign: TextAlign.right,
                                 style: TextStyle(
                                     fontSize: 9,
@@ -168,7 +168,7 @@ class UpbtitTikerBidView extends StatelessWidget {
                               ? Align(
                                   alignment: Alignment.centerRight,
                                   child: Text(
-                                    "-${this.f2.format(_data.bid_minus_size)}",
+                                    "-${Utils.getMoneyformat(_data.bid_minus_size)}",
                                     textAlign: TextAlign.right,
                                     style: TextStyle(
                                         fontSize: 9,

@@ -129,7 +129,7 @@ class UpbitOrderBidView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Text(
-                        "${this.f2.format(_data.bid_size).toString()}",
+                        "${Utils.getMoneyformat(_data.bid_size).toString()}",
                         textAlign: TextAlign.start,
                         style: const TextStyle(
                             fontSize: 11,
@@ -140,7 +140,7 @@ class UpbitOrderBidView extends StatelessWidget {
                           ? Align(
                               alignment: Alignment.centerRight,
                               child: Text(
-                                " ${this.f2.format(_data.bid_plus_size)} ",
+                                " ${Utils.getMoneyformat(_data.bid_plus_size)} ",
                                 textAlign: TextAlign.right,
                                 style: TextStyle(
                                     fontSize: 10,
@@ -152,7 +152,7 @@ class UpbitOrderBidView extends StatelessWidget {
                               ? Align(
                                   alignment: Alignment.centerRight,
                                   child: Text(
-                                    "-${this.f2.format(_data.bid_minus_size)}",
+                                    "-${Utils.getMoneyformat(_data.bid_minus_size)}",
                                     textAlign: TextAlign.right,
                                     style: TextStyle(
                                         fontSize: 10,

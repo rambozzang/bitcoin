@@ -200,8 +200,8 @@ class UpbitMainView extends GetView<UpbitMainController> {
         tabviews[2] = UpbitChartView();
       }
       if (controller.pageIndex.value == 4) {
-        tabviews[4] = UpbitInfoView();
-        // tabviews[4] = UpbitChartViewBak();
+        //tabviews[4] = UpbitInfoView();
+         tabviews[4] = UpbitChartViewBak();
       }
       return FadeIndexedStack(
         //key: ,

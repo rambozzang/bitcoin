@@ -161,33 +161,33 @@ class UpbitOrderController extends GetxController
         element1.ask_size_rate = (element1.ask_size! / bigestAskSizeRate) * 100;
 
         //이전 데이터 와 비교
-        _oldresOrderBookVo.orderbook_units?.forEach((element2) {
-          if (element1.bid_price == element2.bid_price) {
-            if (element1.bid_size! > element2.bid_size!) {
-              element1.bid_plus_size =
-                  (element1.bid_size! - element2.bid_size!);
-              element1.bid_minus_size = 0.0;
-            } else {
-              element1.bid_minus_size =
-                  (element2.bid_size! - element1.bid_size!);
-              element1.bid_plus_size = 0.0;
-            }
+        // _oldresOrderBookVo.orderbook_units?.forEach((element2) {
+        //   if (element1.bid_price == element2.bid_price) {
+        //     if (element1.bid_size! > element2.bid_size!) {
+        //       element1.bid_plus_size =
+        //           (element1.bid_size! - element2.bid_size!);
+        //       element1.bid_minus_size = 0.0;
+        //     } else {
+        //       element1.bid_minus_size =
+        //           (element2.bid_size! - element1.bid_size!);
+        //       element1.bid_plus_size = 0.0;
+        //     }
 
-            if (element1.ask_price == element2.ask_price) {
-              if (element1.ask_size! > element2.ask_size!) {
-                element1.ask_plus_size =
-                    (element1.ask_size! - element2.ask_size!);
-                element1.ask_minus_size = 0.0;
-              } else {
-                element1.ask_minus_size =
-                    (element2.ask_size! - element1.ask_size!);
-                element1.ask_plus_size = 0.0;
-              }
-            }
-            //계산이 다 됐으면 더이상 루프를 돌지 않고 빠져나간다.
-            return;
-          }
-        });
+        //     if (element1.ask_price == element2.ask_price) {
+        //       if (element1.ask_size! > element2.ask_size!) {
+        //         element1.ask_plus_size =
+        //             (element1.ask_size! - element2.ask_size!);
+        //         element1.ask_minus_size = 0.0;
+        //       } else {
+        //         element1.ask_minus_size =
+        //             (element2.ask_size! - element1.ask_size!);
+        //         element1.ask_plus_size = 0.0;
+        //       }
+        //     }
+        //     //계산이 다 됐으면 더이상 루프를 돌지 않고 빠져나간다.
+        //     return;
+        //   }
+        // });
         //비교해서 계산이 완료된 데이터는 삭제
         _oldresOrderBookVo.orderbook_units
             ?.removeWhere((element) => element.bid_price == element1.bid_price);
