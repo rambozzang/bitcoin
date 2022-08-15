@@ -9,7 +9,7 @@ A new Flutter Clone Upbit App project.
  - 실시간 차트
  - 실시간 체력이력
  
-###  업비트 공개용 API 3개만을 이용해서 구현되었습니다.
+###  업비트 공개용 API 3개을 이용해서 구현되었습니다.
 
 ### TODO App 
  - 빗썸 api 적용
